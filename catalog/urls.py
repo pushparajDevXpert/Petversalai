@@ -7,7 +7,7 @@ urlpatterns = [
         ProductListView.as_view(),
         name="product-list"
     ),
-    path("products/<int:pk/",
+    path("products/<int:pk>/",
     ProductUpdateView.as_view(),
     name="product-update"
     )

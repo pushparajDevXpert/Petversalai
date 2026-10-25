@@ -1,5 +1,5 @@
 
-from rest_framework.generics import ListCreateAPIView, UpdateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateAPIView, RetrieveUpdateDestroyAPIView, UpdateAPIView
 from rest_framework .authentication import TokenAuthentication
 from rest_framework.permissions import AllowAny, IsAdminUser
 
@@ -16,11 +16,15 @@ class ProductListView(ListCreateAPIView):
     def get_permissions(self):
         if self.request.method=='POST':
             return [IsAdminUser()]
-        return [AllowAny]
+        return [AllowAny()]
 
-class ProductUpdateView(UpdateAPIView):
+class ProductUpdateView(RetrieveUpdateDestroyAPIView):
 
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAdminUser]
+
+    def get_permissions(self):
+          if self.request.method == "GET":
+              return [AllowAny()]
+          return [IsAdminUser()]
