@@ -1,1 +1,9 @@
-[{"id":1,"name":"Pedgree","category":"foods","price":"260.00","stock":2}]
+[
+    {
+        "id": 1,
+        "name": "Pedgree",
+        "category": "foods",
+        "price": "260.00",
+        "stock": 2
+    }
+]

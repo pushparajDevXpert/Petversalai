@@ -1,12 +1,26 @@
 
-from rest_framework.generics import ListAPIView
-from rest_framework.permissions import AllowAny
+from rest_framework.generics import ListCreateAPIView, UpdateAPIView
+from rest_framework .authentication import TokenAuthentication
+from rest_framework.permissions import AllowAny, IsAdminUser
 
 from .models import Product
 from .serializers import ProductSerializer
 
 
-class ProductListView(ListAPIView):
+class ProductListView(ListCreateAPIView):
     queryset = Product.objects.all().order_by("id")
     serializer_class = ProductSerializer
-    permission_classes = [AllowAny]
+    # authantection
+    authentication_classes=[TokenAuthentication]
+    
+    def get_permissions(self):
+        if self.request.method=='POST':
+            return [IsAdminUser()]
+        return [AllowAny]
+
+class ProductUpdateView(UpdateAPIView):
+
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAdminUser]
