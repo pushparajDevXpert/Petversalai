@@ -41,7 +41,7 @@ useEffect(() => {
 
     } catch (err) {
       console.error(err)
-      setError('Products load झाले नाहीत.')
+      setError('Products not loaded ')
 
     } finally {
       setLoading(false)
