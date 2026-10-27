@@ -1,0 +1,271 @@
+
+/* Page Styling */
+body {
+  margin: 0;
+  display: block;
+  background-color: #f4f9f3;
+  font-family: Arial, sans-serif;
+  color: #174936;
+}
+
+/* Remove Default Vite Layout */
+#root {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* PetVersalAI Header */
+.site-header {
+  background-color: #174936;
+  color: white;
+  padding: 24px 40px;
+}
+
+.site-header h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.site-header p {
+  margin-top: 8px;
+  margin-bottom: 0;
+  color: #c7e6d5;
+  font-size: 14px;
+}
+
+/* Welcome Section */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  color: #174936;
+  font-size: 36px;
+}
+
+.hero p {
+  color: #526a5d;
+  font-size: 18px;
+}
+
+/* Navigation Bar */
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #527461;
+}
+
+/* Navigation Links */
+.site-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+/* Mouse Hover Effect */
+.site-nav a:hover {
+  color: #c7e6d5;
+  text-decoration: underline;
+}
+
+/* Keyboard Focus */
+.site-nav a:focus-visible {
+  outline: 2px solid #c7e6d5;
+  outline-offset: 4px;
+}
+
+/* Fix Navbar Layout */
+.site-header .site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 28px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #527461;
+}
+
+/* Fix Navbar Links */
+.site-header .site-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Navbar Hover Effect */
+.site-header .site-nav a:hover {
+  color: #c7e6d5;
+  text-decoration: underline;
+}
+
+
+/* Products Section */
+.products-section {
+  background-color: white;
+  max-width: 1100px;
+  margin: 20px auto 60px;
+  padding: 40px 20px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.products-section h2 {
+  color: #174936;
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.products-section p {
+  color: #526a5d;
+  font-size: 16px;
+}
+
+/* Products Grid */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 30px 0 0;
+}
+
+/* Individual Product Card */
+.product-list li {
+  background-color: #f4f9f3;
+  border: 1px solid #dce7dd;
+  border-radius: 14px;
+  padding: 24px;
+  text-align: left;
+  min-width: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Product Name */
+.product-list li h3 {
+  color: #174936;
+  font-size: 22px;
+  margin: 0 0 16px;
+}
+
+/* Product Details */
+.product-list li p {
+  color: #526a5d;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* Hover Effect */
+.product-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Stock Badge */
+.stock-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Available Product */
+.in-stock {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+/* Unavailable Product */
+.out-of-stock {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* Category Filter Container */
+.category-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 25px 0;
+}
+
+/* Category Buttons */
+.category-filters button {
+  background-color: white;
+  color: #174936;
+  border: 2px solid #174936;
+  border-radius: 25px;
+  padding: 10px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover Effect */
+.category-filters button:hover {
+  background-color: #dcefe3;
+  color: #174936;
+}
+
+/* Selected Category */
+.category-filters button.active,
+.category-filters button.active:hover {
+  background-color: #174936;
+  color: white;
+}
+
+/* Keyboard Focus */
+.category-filters button:focus-visible {
+  outline: 3px solid #7fc9a1;
+  outline-offset: 3px;
+}
+
+/* Product Search Container */
+.product-search {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0;
+}
+
+/* Product Search Input */
+.product-search input {
+  width: 100%;
+  max-width: 450px;
+  box-sizing: border-box;
+  padding: 14px 18px;
+  border: 2px solid #dce7dd;
+  border-radius: 12px;
+  background-color: white;
+  color: #174936;
+  font-size: 16px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+/* Placeholder Text */
+.product-search input::placeholder {
+  color: #789083;
+}
+
+/* Search Input Focus */
+.product-search input:focus {
+  border-color: #174936;
+  box-shadow: 0 0 0 3px rgba(23, 73, 54, 0.12);
+}
