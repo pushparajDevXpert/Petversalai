@@ -29,6 +29,12 @@ class ProductListView(ListCreateAPIView):
         min_price=self.request.query_params.get("min_price")
         max_price=self.request.query_params.get("max_price")
         in_stock=self.request.query_params.get("in_stock")
+        sort=self.request.query_params.get("sort") 
+
+        if sort is not None and sort not in ("price_asc", "price_desc"):
+            raise ValidationError({
+                "sort": "Choose propper prising range "
+            })
 
         try:
             min_value=Decimal(min_price) if min_price is not None else None
@@ -57,6 +63,7 @@ class ProductListView(ListCreateAPIView):
             raise ValidationError({
                "min_price": "Minimum price cannot be greater than maximum price."
             })
+       
 
 
         if category:
@@ -72,7 +79,12 @@ class ProductListView(ListCreateAPIView):
         if in_stock=="true":
             queryset=queryset.filter(stock__gt=0)
         elif in_stock=="false":
-            queryset=queryset.filter(stock=0    )
+            queryset=queryset.filter(stock=0)
+        if sort=="price_asc":
+            queryset=queryset.order_by("price","id")
+        elif sort=="price_desc":
+            queryset=queryset.order_by("-price","id")
+
         return queryset
 
     
